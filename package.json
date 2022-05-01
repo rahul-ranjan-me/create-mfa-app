@@ -1,0 +1,39 @@
+{
+  "name": "create-mfa-app",
+  "version": "1.0.0",
+  "description": "Module federated bootstrap app generator.",
+  "main": "lib/index.js",
+  "bin": {
+    "create-mfa-app": "lib/index.js"
+  },
+  "scripts": {
+    "start": "npm lint && node lib/index.js",
+    "lint": "eslint lib/**/*.js --fix",
+    "ci-test": "npm lint",
+    "prepare": "git submodule init && git submodule update"
+  },
+  "keywords": [],
+  "author": "Rahul Ranjan",
+  "license": "ISC",
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.2.0",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^10.1.0",
+    "lodash.template": "^4.5.0",
+    "prompts": "^2.4.2",
+    "semver": "^7.3.7",
+    "validate-npm-package-name": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
