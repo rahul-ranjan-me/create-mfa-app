@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Module federated bootstrap app generator.",
   "main": "lib/index.js",
+  "type": "module",
   "bin": {
     "create-mfa-app": "lib/index.js"
   },
