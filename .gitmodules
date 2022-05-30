@@ -1,9 +1,0 @@
-[submodule "mfe-app"]
-	path = mfe-app
-	url = git@github.com:rahul-ranjan-me/mfe-app.git
-[submodule "mfe-shared-components"]
-	path = mfe-shared-components
-	url = git@github.com:rahul-ranjan-me/mfe-shared-components.git
-[submodule "mfe-shell-app"]
-	path = mfe-shell-app
-	url = git@github.com:rahul-ranjan-me/mfe-shell-app.git
