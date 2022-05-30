@@ -1,0 +1,9 @@
+[submodule "templates/shell"]
+	path = templates/shell
+	url = git@github.com:rahul-ranjan-me/mfe-shell-app.git
+[submodule "templates/mfe-app"]
+	path = templates/mfe-app
+	url = git@github.com:rahul-ranjan-me/mfe-app.git
+[submodule "templates/shared-components"]
+	path = templates/shared-components
+	url = git@github.com:rahul-ranjan-me/mfe-shared-components.git
