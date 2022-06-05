@@ -23,6 +23,7 @@
     "type": "git"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "chalk": "^5.0.1",
     "commander": "^9.2.0",
     "cross-spawn": "^7.0.3",
