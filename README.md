@@ -5,8 +5,8 @@
 - [Available scripts](#scriptsAvailable)
 - [Settings](#settings)
 - [Data sharing between micro-frontends(MFEs) and shell app](#dataSharing)
+- [Exposing widgets components](#widgetComponents)
 - [Useful features](#usefulFeatures)
-- [Todos](#todos)
 
 <a id="introduction"></a>
 # Create MFA App
@@ -117,19 +117,23 @@ The build is minified, and the filenames include the hashes which ensures files 
 
 Consider updating the following configuration based on your application requirements.
 
-**1)Free Port**
+**1) Free Port**
+
 A free port is required to run the newly added micro front-end. You can specify this while adding a new micro front-end app through the command line interface (CLI). In case you want to change the port, you can configure the new port by specifying in the package.json file of the respective micro front-end app.
 
-**2)Application routes**
+**2) Application routes**
+
 `{micro front-end app}/src/const/routes.jsx` is the configuration file to share micro front-end app routes with the shell to register them as platoform routes.
 
 ***Adding a new route***
+
 Add a new entry to `defaultRoutes` array in `{micro front-end app}/src/const/routes.jsx`  like below:
 ```
 { path: "payments/about", element: <About /> },
 ```
 
-**2)Config service**
+**3) Config service**
+
 The shell-container app makes an XHR call to fetch information about micro front-end apps to register, such as remoteName and the URL.
 
 Adding/Removing micro front-end can be done through the config service. This doesn't require shell-container or any micro front-end app re-deployment.
@@ -152,26 +156,71 @@ Any new context data can be added and shared throughout the platform by adding i
 
 > [Go to top](#top)
 
+<a id="widgetComponents"></a>
+
+## Exposing widgets components
+
+Sometimes, instead of exposing whole app as micro front-end, you also want to expose a particular widget/component that can be build and exposed by one micro frontend-app and consume by other micro front-ends easily.
+
+### Exposing a widget as module federated component
+Create your component just like a normal React component. In order to get that component exposed, we have to add this component entry at two files on the respective micro front-end app.
+
+1) `{micro front-end app}/src/appRoutesComponentConfig.js` 
+
+    Add an entry just like ` "./header": "./src/components/Header",` component to `allComponents` object is added on the line no. 4
+
+2) `{micro front-end app}/src/exposedComponentsList.js`
+
+    Add an entry just like `'./header'` to `componentsArray` on the line no. 1
+
+### Consuming the component
+Now that we have exposed a component from our micro front-end app, we want to consume the same into other micro front-end app.
+
+In order to consume a module federated widget, we have created a special component `MFAComponentLoader` that you can export from the shared component micro front-end like below.
+
+
+```
+import { MFAComponentLoader } from "shared/Components";
+```
+
+and consume the exposed component anywhere in your React component by calling the component like below
+
+```
+ <MFAComponentLoader componentName="./header" />
+```
+
+An example of the same is created for you and placed under `{shell-container app}/src/pages/Home.jsx`
+
+
+> [Go to top](#top)
+
 <a id="usefulFeatures"></a>
 
 ## Useful features
 **Less to research**
+
 The bootstrap CLI will come bundled with powers to get you started on the day 1
 
 **Using opensource, no lock in**
+
 Under the hood, we use Webpack, Babel, ESlint, and other amazing projects to power your app. This will help you to extend and customized the configuration based on your project needs.
 
 **Shared component micro-frontend**
+
 The scaffold is bundled with a shared component micro-frontend (MFE). The shared component MFE allows you to consume reusable components across different micro front-end from a single source. So, when you need to update a component, you would only require to update and deploy shared components micro front-end. Other micro front-end would always ensured to get the latest version unlike consuming as node package.
 
 **Data sharing**
+
 Common mechanism to share data between micro front-ends and shell container app.
 
 **Testing Support**
+
 ESLint pre-configure with the generated templates.
 
 # Contact me
+
 I would love to get your feedback. Small or big any feedback is welcome. Please drop a not to me on my email id: rahul.smile@gmail.com
 
 ### Thank you 
+
 - Rahul Ranjan
