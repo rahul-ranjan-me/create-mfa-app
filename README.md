@@ -217,6 +217,9 @@ Common mechanism to share data between micro front-ends and shell container app.
 
 ESLint pre-configure with the generated templates.
 
+# Credit
+Zack Jackson and the team for coming up with Webpack 5 module federation solution.
+
 # Contact me
 
 I would love to get your feedback. Small or big any feedback is welcome. Please drop a not to me on my email id: rahul.smile@gmail.com
