@@ -1,6 +1,6 @@
 {
   "name": "create-mfa-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Bootstrap CLI that generates micro front-end app using the Webpack module federation approach.",
   "main": "lib/index.js",
   "type": "module",
