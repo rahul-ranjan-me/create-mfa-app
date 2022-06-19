@@ -222,6 +222,10 @@ Common mechanisms to share data between micro front-ends and shell container app
 
 ESLint pre-configured with the generated application.
 
+## ToDos
+- Add Jest, Cypress, ESLint as an option while configuring the project
+- Consuming shared components URL in apps through the configuration service
+
 # Credit
 Zack Jackson and the team for coming up with Webpack 5 module federation solution.
 

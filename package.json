@@ -1,7 +1,7 @@
 {
   "name": "create-mfa-app",
   "version": "0.0.3",
-  "description": "Module federated bootstrap app generator.",
+  "description": "Bootstrap CLI that generates micro front-end app using the Webpack module federation approach.",
   "main": "lib/index.js",
   "type": "module",
   "bin": {
@@ -14,7 +14,7 @@
     "prepare": "git submodule init && git submodule update"
   },
   "private": false,
-  "keywords": ["module federation", "webpack module federation", "create mfa app", "module federation bootstrap cli", "Micro frontend bootstrap CLI"],
+  "keywords": ["module federation", "webpack module federation", "create mfa app", "module federation bootstrap cli", "Micro frontend bootstrap CLI", "Micro frontend"],
   "author": "Rahul Ranjan",
   "license": "ISC",
   "engines": {

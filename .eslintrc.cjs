@@ -20,10 +20,10 @@ module.exports = {
     "max-len": [
       2,
       {
-        code: 120,
-        ignoreComments: true,
-        ignoreTrailingComments: true,
-        ignoreSettings: true,
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreStrings": true,
       },
     ],
     "object-curly-spacing": [2, "always"],
@@ -33,5 +33,10 @@ module.exports = {
     "no-unreachable": 1,
     "import/no-unresolved": 1,
     "no-return-await": 1,
+    "import/extensions": [
+      "error", {
+        "js": "ignorePackages"
+      }
+    ]
   },
 };
