@@ -11,13 +11,13 @@
 <a id="introduction"></a>
 # Create MFA App
 
-Bootstrap your micro front-end (MFE) using the starter App. The starter app comes bundle with shared component micro front-end and sample navigation.
+Bootstrap your micro front-end (MFE) using the starter App. The starter app comes with a shared micro-front end and an example of navigation.
 
-The starter app is un-opinionated and is bare minimum scaffold to run an application using module federation approach.
+The starter app is not opinionated and is the minimum scaffolding to run an application using the Webpack module federation approach.
 
-It will create and initialize your micro front-end starter app in the specified folders, ready to user and available for further customization.
+It will create and initialize your micro front-end startup application into the specified folders, user-ready and available for further customization.
 
-There are two main option on the CLI, which let the software about the type of application you want to create.
+There are two main options on the CLI, which let the software about the type of application you want to create.
 
 ```
 > Bootstrap MFE platform. Includes 
@@ -29,10 +29,15 @@ There are two main option on the CLI, which let the software about the type of a
 ```
 
 #### Bootstrap MFE platform
-This option will create three separate apps, as listed above and integrates with the shell app. This option is used to create a new project.
+This option will create three separate applications, as described above, and integrate them into the shell application. It can be used during the creation of a new project.
 
-#### Add new MFE to platform
-This option will scaffold a new micro front-end app that can be added to already existing shell generated in previous step.
+#### Add new MFE to the platform
+This option will build a new micro-front-end application that can be added to a shell already generated in the previous step.
+
+#### Template source repos:
+- Shell container: [git@github.com:rahul-ranjan-me/mfe-shell-app.git](https://github.com/rahul-ranjan-me/mfe-shell-app)
+- Shared components: [git@github.com:rahul-ranjan-me/mfe-shared-components.git](https://github.com/rahul-ranjan-me/mfe-shared-components)
+- Micro front-end application: [git@github.com:rahul-ranjan-me/mfe-app.git](https://github.com/rahul-ranjan-me/mfe-app)
 
 > [Go to top](#top)
 
@@ -43,7 +48,7 @@ This option will scaffold a new micro front-end app that can be added to already
 > npx create-mfa-app
 ```
 
-Running the command will create three directories (shell-container, shared-components, micro-frontend-app) inside the `workspace` folder (names would be based on your entered inputs). Inside these directories, it will generate the initial project structure and install the transitive dependencies.
+Executing the command will create three directories (shell-container, shared-components, micro-frontend-app) in the 'workspace' folder (the names would be based on your entries). It will generate the initial project structure and install the transitive dependencies within those directories.
 
 ```
 
@@ -79,7 +84,7 @@ micro-frontend-app
 
 ```
 
-No configuration or complicated folder structure, only the files you need to build your app. Once the installation is done, you can open your project folders.
+No complicated configuration or folder structure, only the files you need to construct your application. Once the installation is complete, you may open your project files.
 
 ```
 > cd workspace/micro-frontend-app
@@ -91,7 +96,7 @@ No configuration or complicated folder structure, only the files you need to bui
 
 ## Available scripts
 
-Inside the newly created project, you can run some built-in commands:
+Within the newly created project, you can execute a few embedded commands:
 
 ### `npm start` or `yarn start`
 
@@ -105,9 +110,9 @@ Run the eslinting to static type checking
 
 ### `npm build` or `yarn build`
 
-Builds the app for production to the build folder. It bundles React in production mode and optimizes the build for the best performance.
+Build the application for production into the 'dist' folder. It bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified, and the filenames include the hashes which ensures files are not cached.
+The build is minified, and the filenames include the hashes which ensure files are not cached.
 
 > [Go to top](#top)
 
@@ -115,32 +120,32 @@ The build is minified, and the filenames include the hashes which ensures files 
 
 ## Settings
 
-Consider updating the following configuration based on your application requirements.
+Consider updating the following configuration in accordance with your application requirements.
 
 **1) Free Port**
 
-A free port is required to run the newly added micro front-end. You can specify this while adding a new micro front-end app through the command line interface (CLI). In case you want to change the port, you can configure the new port by specifying in the package.json file of the respective micro front-end app.
+A free port is necessary to execute the newly added micro front-end. You can specify this when adding a new microfront-end application through the Command Line Interface (CLI). In the event that you want to modify the port, you can configure the new port by specifying in the package.json file of the respective micro-front-end application.
 
 **2) Application routes**
 
-`{micro front-end app}/src/const/routes.jsx` is the configuration file to share micro front-end app routes with the shell to register them as platoform routes.
+`{micro front-end app}/src/const/routes.jsx` is the configuration file for sharing micro front-end application routes with the shell to register them as platform routes.
 
 ***Adding a new route***
 
-Add a new entry to `defaultRoutes` array in `{micro front-end app}/src/const/routes.jsx`  like below:
+Add a new entry to `defaultRoutes` array in `{micro front-end app}/src/const/routes.jsx` like below:
 ```
 { path: "payments/about", element: <About /> },
 ```
 
 **3) Config service**
 
-The shell-container app makes an XHR call to fetch information about micro front-end apps to register, such as remoteName and the URL.
+The shell-container application makes an XHR call to retrieve information on the micro-front-end applications to be recorded, such as remoteName and the URL.
 
-Adding/Removing micro front-end can be done through the config service. This doesn't require shell-container or any micro front-end app re-deployment.
+Micro front-end addition/deletion can be done through the configuration service. This doesn't require shell container or any micro front-end app re-deployment.
 
-You can refer sample config service response in `{shell-container}/public/config.json`.
+You can refer sample configuration service response in `{shell-container}/public/config.json`.
 
-To showcase the file is served through the public folder of the shell-container app. You can create a separate endpoint API for the same and update the url in line no. 12 of `{shell-container}/src/core/setupApp.jsx` file.
+To display the file is served via the public folder of the shell-container application. You can create a separate endpoint API for the same and update the URL in line no. 12 of `{shell-container}/src/core/setupApp.jsx` file.
 
 > [Go to top](#top)
 
@@ -148,11 +153,11 @@ To showcase the file is served through the public folder of the shell-container 
 
 ## Data sharing
 
-The scaffold app use React Context API to share data between micro front-end and shell-container apps.
+The Scaffold application uses the React Context API to share data across micro front-end and shell-container applications.
 
-The context is common and craete in the shared component MFE. You can refere `{shared-component}/src/components/contextProvider.js`
+The context is common and is created through the shared component of the micro front-end. You can refer `{shared-component}/src/components/contextProvider.js`
 
-Any new context data can be added and shared throughout the platform by adding into the shared component file.
+Any new data can be added to the context and shared across the platform by adding in the shared component global context file.
 
 > [Go to top](#top)
 
@@ -160,10 +165,10 @@ Any new context data can be added and shared throughout the platform by adding i
 
 ## Exposing widgets components
 
-Sometimes, instead of exposing whole app as micro front-end, you also want to expose a particular widget/component that can be build and exposed by one micro frontend-app and consume by other micro front-ends easily.
+Sometimes, instead of exposing the whole app as a micro front-end, you also want to expose a particular widget/component that can be built and exposed by one micro front-end app and re-used by other micro front-ends easily.
 
 ### Exposing a widget as module federated component
-Create your component just like a normal React component. In order to get that component exposed, we have to add this component entry at two files on the respective micro front-end app.
+Create your component as a typical React component. In order to expose this component, we just need to add this component information in two files on the respective micro front-end application.
 
 1) `{micro front-end app}/src/appRoutesComponentConfig.js` 
 
@@ -174,7 +179,7 @@ Create your component just like a normal React component. In order to get that c
     Add an entry just like `'./header'` to `componentsArray` on the line no. 1
 
 ### Consuming the component
-Now that we have exposed a component from our micro front-end app, we want to consume the same into other micro front-end app.
+Now that we have exposed a component from our micro front-end app, we want to consume the same in other micro front-end apps.
 
 In order to consume a module federated widget, we have created a special component `MFAComponentLoader` that you can export from the shared component micro front-end like below.
 
@@ -183,7 +188,7 @@ In order to consume a module federated widget, we have created a special compone
 import { MFAComponentLoader } from "shared/Components";
 ```
 
-and consume the exposed component anywhere in your React component by calling the component like below
+and consume the exposed component anywhere in your application by calling the component below
 
 ```
  <MFAComponentLoader componentName="./header" />
@@ -199,30 +204,30 @@ An example of the same is created for you and placed under `{shell-container app
 ## Useful features
 **Less to research**
 
-The bootstrap CLI will come bundled with powers to get you started on the day 1
+The Create-mfa-app CLI will come with abilities to help you start on day 1.
 
 **Using opensource, no lock in**
 
-Under the hood, we use Webpack, Babel, ESlint, and other amazing projects to power your app. This will help you to extend and customized the configuration based on your project needs.
+Under the hood, we use Webpack, Babel, ESlint, and other amazing projects to fuel your application. This will allow you to expand and customize the setup according to your project needs.
 
 **Shared component micro-frontend**
 
-The scaffold is bundled with a shared component micro-frontend (MFE). The shared component MFE allows you to consume reusable components across different micro front-end from a single source. So, when you need to update a component, you would only require to update and deploy shared components micro front-end. Other micro front-end would always ensured to get the latest version unlike consuming as node package.
+The scaffolding is delivered with a micro front-end shared component (MFE). The MFE shared component lets you consume reusable components from a single source through different micro front-ends. So when you need to update a component, all you need to do is update and deploy shared micro-front-end components. Other micro front-end would always be guaranteed to get the latest version in contrast to consuming as a node package.
 
 **Data sharing**
 
-Common mechanism to share data between micro front-ends and shell container app.
+Common mechanisms to share data between micro front-ends and shell container app.
 
 **Testing Support**
 
-ESLint pre-configure with the generated templates.
+ESLint pre-configured with the generated application.
 
 # Credit
 Zack Jackson and the team for coming up with Webpack 5 module federation solution.
 
 # Contact me
 
-I would love to get your feedback. Small or big any feedback is welcome. Please drop a not to me on my email id: rahul.smile@gmail.com
+I would love to get your feedback. Small or big any feedback is welcome. Please drop me a note to me on my email id: rahul.smile@gmail.com
 
 ### Thank you 
 
