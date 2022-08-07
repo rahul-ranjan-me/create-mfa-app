@@ -167,21 +167,17 @@ Any new data can be added to the context and shared across the platform by addin
 
 Sometimes, instead of exposing the whole app as a micro front-end, you also want to expose a particular widget/component that can be built and exposed by one micro front-end app and re-used by other micro front-ends easily.
 
-### Exposing a widget as module federated component
-Create your component as a typical React component. In order to expose this component, we just need to add this component information in two files on the respective micro front-end application.
+### Exposing a widget as a module federated component
+Create your component as a React component. To expose this component, we just need to add this component information in two files on the respective micro front-end application.
 
-1) `{micro front-end app}/src/appRoutesComponentConfig.js` 
+1) `{micro front-end app}/src/manifest.js` 
 
-    Add an entry just like ` "./header": "./src/components/Header",` component to `allComponents` object is added on the line no. 4
-
-2) `{micro front-end app}/src/exposedComponentsList.js`
-
-    Add an entry just like `'./header'` to `componentsArray` on the line no. 1
+    Add an entry just like ` "./header": "./src/components/Header",` component to `exposedComponents` object is added on the line no. 4
 
 ### Consuming the component
 Now that we have exposed a component from our micro front-end app, we want to consume the same in other micro front-end apps.
 
-In order to consume a module federated widget, we have created a special component `MFAComponentLoader` that you can export from the shared component micro front-end like below.
+To consume a module federated widget, we have created a special component `MFAComponentLoader` that you can export from the shared component micro front-end like below.
 
 
 ```
@@ -192,6 +188,13 @@ and consume the exposed component anywhere in your application by calling the co
 
 ```
  <MFAComponentLoader componentName="./header" />
+```
+
+There is an optional `moduleName` props you can pass, if you don't want dynamic discovery of the micro front-end that is exposing the target component.
+Module name is the remote name of the micro front-app that is exposing the component.
+
+```
+ <MFAComponentLoader componentName="./header" moduleName="micro_frontend_app" />
 ```
 
 An example of the same is created for you and placed under `{shell-container app}/src/pages/Home.jsx`
